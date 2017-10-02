@@ -1,0 +1,1440 @@
+======================================================================
+EPSILON CONFIDENTIAL      EPSILON CONFIDENTIAL    EPSILON CONFIDENTIAL
+
+    INFORMATION LISTED BELOW IS AVAILABLE UNDER THE TERMS OF THE  
+                      CONFIDENTIALITY AGREEMENT                
+
+EPSILON CONFIDENTIAL      EPSILON CONFIDENTIAL    EPSILON CONFIDENTIAL
+======================================================================
+
++--------------------------------------------------------------------+
+|                   DOCUMENTATION TO ACCOMPANY                       |
+|                                                                    |
+|                          KDD-CUP-98                                |
+|                                                                    |
+|          The Second International Knowledge Discovery and          |
+|                 Data Mining Tools Competition                      |
+|                                                                    |
+|                Held in Conjunction with KDD-98                     |
+|                                                                    |
+|          The Fourth International Conference on Knowledge          |
+|                   Discovery and Data Mining                        |
+|                    [www.kdnuggets.com] or                          |
+|                 [www-aig.jpl.nasa.gov/kdd98] or                    |
+|                [www.aaai.org/Conferences/KDD/1998]                 |
+|                                                                    |
+|                       Sponsored by the                             |
+|                                                                    |
+|      American Association for Artificial Intelligence (AAAI)       |
+|                  Epsilon Data Mining Laboratory                    |
+|                Paralyzed Veterans of America (PVA)                 |
++--------------------------------------------------------------------+
+|                                                                    |
+| Created:     7/20/98                                               |
+| Last update: 7/22/98                                               |
+| File name:   cup98DOC.txt                                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+Table of Contents:       
+
+o IMPORTANT DATES (UPDATED)
+o GENERAL INSTRUCTIONS (for DOWNLOADS, RESULT RETURNS, etc.)
+o LISTING of the FILES (Contents of the README FILE)
+o PROJECT OVERVIEW: A FUND RAISING NET RETURN PREDICTION MODEL
+o EVALUATION RULES 
+o DATA SOURCES and ORDER & TYPE OF THE VARIABLES IN THE DATA SETS 
+o SUMMARY STATISTICS (MIN & MAX)
+o DATA (PRE)PROCESSING
+o KDD-CUP-98 PROGRAM COMMITTEE
+o TERMINOLOGY-GLOSSARY
+
+
++--------------------------------------------------------------------+
+| IMPORTANT DATES (UPDATED)                                          |
++--------------------------------------------------------------------+
+
+o Release of the datasets, related documentation and the KDD-CUP
+  questionnaire
+
+  July 22, 1998
+
+o Return of the results and the KDD-CUP questionnaire  
+
+  August 19, 1998
+
+o KDD-CUP Committee evaluation of the results
+
+  August 19-25
+
+o Individual performance evaluations send to the participants
+
+  August 26, 1998
+ 
+o Public announcement of the winners and awards presentation during
+  KDD-98 in New York City
+
+  August 29, 1998 
+
+
++--------------------------------------------------------------------+
+| GENERAL INSTRUCTIONS (for DOWNLOADS, RESULT RETURNS, etc.)         | 
++--------------------------------------------------------------------+
+
+1. FTP to 159.127.66.10. Login anonymous. Enter email ID as password.
+
+3. The README file contains information about the files included in
+the FTP server.  All data files are compressed. The files with .zip
+extension are compressed with the PKZIP compression utility and they
+are for participants with IBM PC compatible hardware. The PKUNZIP
+utility is needed to unzip these files. The files with .Z extension
+are UNIX COMPRESSed and they are for the participants with UNIX
+compatible hardware. YOU WILL EITHER NEED THE DATA FILES <cup98LRN.ZIP
+AND cup98VAL.ZIP> *OR* <cup98LRN.TXT.Z AND cup98VAL.TXT.Z>, BUT NOT
+BOTH. REMEMBER TO FTP THESE FILES IN BINARY MODE.
+
+4. The data sets are in comma delimited format. The learning dataset
+<cup98LRN.txt> contains 95412 records and 481 fields. The first/header
+row of the data set contains the field names.
+
+The validation dataset <cup98VAL.txt> contains 96367 records and 479
+variables. The first/header row of the data set contains the field
+names.
+
+THE RECORDS IN THE VALIDATION DATASET ARE IDENTICAL TO THE RECORDS IN
+THE LEARNING DATASET EXCEPT THAT THE VALUES FOR THE TARGET/DEPENDENT
+VARIABLES ARE MISSING (i.e., the fields TARGET_B and TARGET_D are
+not included in the validation data set.)
+
+5. The data dictionary (for both the learning and the validation data
+set) is included in the file <cup98DIC.txt>. The fields in the data
+dictionary are ordered by the position of the fields in the learning
+data set. The dictionary for the validation data set is identical to
+the dictionary for the learning data set except the two target fields
+(target_B and target_D) are missing in the validation data set.
+
+6. Blanks in the string (or character) variables/fields and periods in
+the numeric variables correspond to missing values.
+
+7. Each record has a unique record identifier or index (field name:
+CONTROLN.) For each record, there are two target/dependent variables
+(field names: TARGET_B and TARGET_D). TARGET_B is a binary variable
+indicating whether or not the record responded to the promotion of
+interest ("97NK" mailing) while TARGET_D contains the donation amount
+(dollar) and is only observed for those that responded to the
+promotion.
+
+8. THE DEADLINE HAS BEEN EXTENDED. You are required to return the
+questionnaire and the validation dataset of 96367 records by email to
+<iparsa@epsilon.com> by AUGUST 19, 1998.
+
+Each record in the returned file should consist of the following two
+values:
+
+a. The unique record identifier or index (field name: CONTROLN)
+b. Predicted value of the donation (dollar) amount (for the target
+variable TARGET_D) for that record 
+
+You are also required to fill out the questionnaire (file name:
+<cup98QUE.txt>. The questionnaire is used to summarize in bullet
+points the data analytic techniques you've applied to the dataset.
+
+9. Please send email to <iparsa@epsilon.com> when you download the
+files so we can keep you informed about anything necessary.
+
+10. Under no circumstances should any participant contact Paralyzed
+Veterans of America (PVA) for any reason.
+
+If you have any questions, please send email to <iparsa@epsilon.com.>
+
++--------------------------------------------------------------------+
+| FILES LISTING (README FILE)                                        |
++--------------------------------------------------------------------+
+
+File Naming Conventions: 
+
+o cup98         : KDD-CUP-98 
+o      QUE      : QUEstionnaire 
+o      DOC      : DOCumentation
+o      DIC      : DICtionary
+o      LRN      : LeaRNing data set 
+o      VAL      : VALidation data set 
+o         .txt  : plain ascii text files
+o         .zip  : PKZIP compressed files
+o         .txt.Z: UNIX COMPRESSED files
+
+FILE NAME       DESCRIPTION
+--------------- ------------------------------------------------------
+
+README          This list, listing the files in the FTP server and 
+                their contents.
+
+cup98NDA.txt    The Non-Disclosure Agreement. MUST BE SIGNED BY ALL 
+                PARTICIPANTS AND MAILED BACK TO ISMAIL PARSA 
+                <iparsa@epsilon.com> BEFORE DOWNLOADING THE DATA SETS.
+
+cup98DOC.txt    This file, an overview and pointer to more detailed 
+                information about the competition
+
+cup98DIC.txt    Data dictionary to accompany the analysis data set. 
+
+cup98QUE.txt    KDD-CUP questionnaire. PARTICIPANTS ARE REQUIRED TO
+                FILL-OUT THE QUESTIONNAIRE and turned in
+                with the results. 
+
+cup98LRN.zip    PKZIP compressed raw LEARNING data set. 
+                Internal name: cup98LRN.txt 
+                File size: 36,468,735 bytes zipped. 117,167,952 bytes 
+                unzipped.
+                Number of Records: 95412.
+                Number of Fields: 481.
+
+cup98VAL.zip    PKZIP compressed raw VALIDATION data set. 
+                Internal name: cup98VAL.txt 
+                File size: 36,763,018 bytes zipped. 117,943,347 bytes 
+                unzipped.
+                Number of Records: 96367.
+                Number of Fields: 479.
+ 
+cup98LRN.txt.Z  UNIX COMPRESSed raw LEARNING data set. 
+                Internal name: cup98LRN.txt 
+                File size: 36,579,127 bytes compressed. 117,167,952 
+                bytes uncompressed.
+                Number of Records: 95412.
+                Number of Fields: 481.
+
+cup98VAL.txt.Z  UNIX COMPRESSed raw VALIDATION data set. 
+                Internal name: cup98VAL.txt 
+                File size: 36,903,761 bytes compressed. 117,943,347 
+                bytes uncompressed.
+                Number of Records: 96367.
+                Number of Fields: 479.
+
+
++--------------------------------------------------------------------+
+| PROJECT OVERVIEW: A Fund Raising Net Return Prediction Model       | 
++--------------------------------------------------------------------+
+
+BACKGROUND AND OBJECTIVES
+-------------------------
+
+The data set for this year's Cup has been generously provided by the
+Paralyzed Veterans of America (PVA).  PVA is a not-for-profit
+organization that provides programs and services for US veterans with
+spinal cord injuries or disease.  With an in-house database of over 13
+million donors, PVA is also one of the largest direct mail fund
+raisers in the country.
+
+Participants in the '98 CUP will demonstrate the performance of their
+tool by analyzing the results of one of PVA's recent fund raising
+appeals.  This mailing was sent to a total of 3.5 million PVA donors
+who were on the PVA database as of June 1997.  Everyone included in
+this mailing had made at least one prior donation to PVA.
+
+The mailing included a gift (or "premium") of personalized name &
+address labels plus an assortment of 10 note cards and envelopes.  All
+of the donors who received this mailing were acquired by PVA through
+similar premium-oriented appeals such as this.
+
+One group that is of particular interest to PVA is "Lapsed" donors.
+These are individuals who made their last donation to PVA 13 to 24
+months ago.  They represent an important group to PVA, since the
+longer someone goes without donating, the less likely they will be to
+give again.  Therefore, recapture of these former donors is a critical
+aspect of PVA's fund raising efforts.
+
+However, PVA has found that there is often an inverse correlation
+between likelihood to respond and the dollar amount of the gift, so a
+straight response model (a classification or discrimination task) will
+most likely net only very low dollar donors.  High dollar donors will
+fall into the lower deciles, which would most likely be suppressed
+from future mailings.  The lost revenue of these suppressed donors
+would then offset any gains due to the increased response rate of the
+low dollar donors.
+
+Therefore, to improve the cost-effectiveness of future direct
+marketing efforts, PVA wishes to develop a model that will help them
+maximize the net revenue (a regression or estimation task) generated
+from future renewal mailings to Lapsed donors.
+
+POPULATION
+----------
+
+The population for this analysis will be Lapsed PVA donors who
+received the June '97 renewal mailing (appeal code "97NK").
+Therefore, the analysis data set contains a subset of the total
+universe who received the mailing.
+
+The analysis file includes all 191,779 Lapsed donors who received the
+mailing, with responders to the mailing marked with a flag in the
+TARGET_B field.  The total dollar amount of each responder's gift is
+in the TARGET_D field.
+
+The overall response rate for this direct mail promotion is 5.1%.  The
+distribution of the target fields in the learning and validation files
+is as follows:
+
+
+  Learning Data Set
+  Target Variable: Binary Indicator of Response to 97NK 
+  Mailing
+                                Cumulative  Cumulative
+  TARGET_B   Frequency   Percent   Frequency    Percent
+  ------------------------------------------------------
+         0      90569      94.9       90569       94.9
+         1       4843       5.1       95412      100.0
+
+
+  Learning Data Set
+  Target Variable: Donation Amount (in $) to 97NK Mailing   
+
+  Variable       N          Mean   Minimum       Maximum 
+  ------------------------------------------------------ 
+  TARGET_D   95412     0.7930732         0   200.0000000 
+  ------------------------------------------------------ 
+
+
+
+  Validation Data Set 
+  Target Variable: Binary Indicator of Response to 97NK 
+  Mailing
+                                Cumulative  Cumulative
+  TARGET_B   Frequency   Percent   Frequency    Percent
+  ------------------------------------------------------
+         0      91494      94.9       91494       94.9
+         1       4873       5.1       96367      100.0
+
+  Validation Data Set 
+  Target Variable: Donation Amount (in $) to 97NK Mailing 
+
+  Variable       N          Mean   Minimum       Maximum
+  ------------------------------------------------------
+  TARGET_D   96367     0.7895819         0   500.0000000
+  ------------------------------------------------------
+
+
+The average donation amount (in $) among the responsers is: 
+
+
+  Learning Data Set
+  Target Variable: Donation Amount (in $) to 97NK 
+  Mailing  
+
+      N          Mean       Minimum       Maximum
+  -----------------------------------------------
+   4843    15.6243444     1.0000000   200.0000000
+  -----------------------------------------------
+
+
+  Validation Data Set
+  Target Variable: Donation Amount (in $) to 97NK 
+  Mailing 
+
+      N          Mean       Minimum       Maximum
+  -----------------------------------------------
+   4873    15.6145372     0.3200000   500.0000000
+  -----------------------------------------------
+
+
+COST MATRIX
+-----------
+
+The package cost (including the mail cost) is $0.68 per piece mailed.
+
+
+ANALYSIS TIME FRAME AND REFERENCE DATE
+--------------------------------------
+
+The 97NK mailing was sent out on June 1997. All information included
+in the file (excluding the giving history date fields) is reflective
+of behavior prior to 6/97. This date may be used as the reference date
+in generating the "number of months since" or "time since" or "elapsed
+time" variables. The participants could also find the reference date
+information in the filed ADATE_2.  This filed contains the dates the
+97NK promotion was mailed.
+
+
++--------------------------------------------------------------------+
+| EVALUATION RULES                                                   |
++--------------------------------------------------------------------+
+
+Once again, the objective of the analysis will be to maximize the net
+revenue generated from this mailing - a censored regression or
+estimation problem. The response variable is, thus, continuous (for 
+the lack of a better common term.) Alhough we are releasing both the
+binary and the continuous versions of the target variable (TARGET_B
+and TARGET_D respectively), the program committee will use the
+predicted value of the donation (dollar) amount (for the target
+variable TARGET_D) in evaluating the results. So, returning the
+predicted value of the binary target variable TARGET_B and its
+associated probability/strength will not be sufficient. 
+
+The typical outcome of predictive modeling in database marketing is 
+an estimate of the expected response/return per customer in the
+database. A marketer will mail to a customer so long as the expected 
+return from an order exceeds the cost invested in generating the order, 
+i.e., the cost of promotion. For our purpose, the package cost 
+(including the mail cost) is $0.68 per piece mailed.
+
+KDD-CUP committee will evaluate the results based solely on the net
+revenue generated on the hold-out or validation sample.
+
+The measure we will use is:
+
+  Sum (the actual donation amount - $0.68) over all records for 
+  which the expected revenue (or predicted value of the donation) 
+  is over $0.68.
+
+This is a direct measure of profit.  The winner will be the 
+participant with the highest actual sum.  The results will be rounded 
+to the nearest 10 dollars. 
+
+
++--------------------------------------------------------------------+
+| DATA SOURCES and ORDER & TYPE OF THE VARIABLES IN THE DATA SETS    |
++--------------------------------------------------------------------+
+
+The dataset includes:
+
+o 24 months of detailed PVA promotion and giving history (covering the
+  period 12 to 36 months prior to the "97NK" mailing)
+
+o A summary of the promotions sent to the donors over the most recent
+  12 months prior to the "97NK" mailing (by definition, none of these
+  donors responded to any of these promotions)
+
+o Summary variables reflecting each donor's lifetime giving history
+  (e.g., total # of donations prior to "97NK" mailing, total $ amount
+  of the donations, etc.)
+
+o Overlay demographics, including a mix of household and area level
+  data
+
+o All other available data from the PVA database (e.g., date of first
+  gift, state, origin source, etc.)
+
+The fields are described in greater detail in the data dictionary file
+<filename: cup98DIC.txt>.
+
+The name of the variables in the learning and validation data sets is
+included in each file as the top (header) record. For your
+information, they are listed below again (ordered by data set
+position) along with the filed type information (Num: numeric, Char:
+string/character.)
+
+  Field Name  Type  
+  ----------------
+  ODATEDW     Num   
+  OSOURCE     Char  
+  TCODE       Num   
+  STATE       Char  
+  ZIP         Char  
+  MAILCODE    Char  
+  PVASTATE    Char  
+  DOB         Num   
+  NOEXCH      Char  
+  RECINHSE    Char  
+  RECP3       Char  
+  RECPGVG     Char  
+  RECSWEEP    Char  
+  MDMAUD      Char  
+  DOMAIN      Char  
+  CLUSTER     Char  
+  AGE         Num   
+  AGEFLAG     Char  
+  HOMEOWNR    Char  
+  CHILD03     Char  
+  CHILD07     Char  
+  CHILD12     Char  
+  CHILD18     Char  
+  NUMCHLD     Num   
+  INCOME      Num   
+  GENDER      Char  
+  WEALTH1     Num   
+  HIT         Num   
+  MBCRAFT     Num   
+  MBGARDEN    Num   
+  MBBOOKS     Num   
+  MBCOLECT    Num   
+  MAGFAML     Num   
+  MAGFEM      Num   
+  MAGMALE     Num   
+  PUBGARDN    Num   
+  PUBCULIN    Num   
+  PUBHLTH     Num   
+  PUBDOITY    Num   
+  PUBNEWFN    Num   
+  PUBPHOTO    Num   
+  PUBOPP      Num   
+  DATASRCE    Char  
+  MALEMILI    Num   
+  MALEVET     Num   
+  VIETVETS    Num   
+  WWIIVETS    Num   
+  LOCALGOV    Num   
+  STATEGOV    Num   
+  FEDGOV      Num   
+  SOLP3       Char  
+  SOLIH       Char  
+  MAJOR       Char  
+  WEALTH2     Num   
+  GEOCODE     Char  
+  COLLECT1    Char  
+  VETERANS    Char  
+  BIBLE       Char  
+  CATLG       Char  
+  HOMEE       Char  
+  PETS        Char  
+  CDPLAY      Char  
+  STEREO      Char  
+  PCOWNERS    Char  
+  PHOTO       Char  
+  CRAFTS      Char  
+  FISHER      Char  
+  GARDENIN    Char  
+  BOATS       Char  
+  WALKER      Char  
+  KIDSTUFF    Char  
+  CARDS       Char  
+  PLATES      Char  
+  LIFESRC     Char  
+  PEPSTRFL    Char  
+  POP901      Num   
+  POP902      Num   
+  POP903      Num   
+  POP90C1     Num   
+  POP90C2     Num   
+  POP90C3     Num   
+  POP90C4     Num   
+  POP90C5     Num   
+  ETH1        Num   
+  ETH2        Num   
+  ETH3        Num   
+  ETH4        Num   
+  ETH5        Num   
+  ETH6        Num   
+  ETH7        Num   
+  ETH8        Num   
+  ETH9        Num   
+  ETH10       Num   
+  ETH11       Num   
+  ETH12       Num   
+  ETH13       Num   
+  ETH14       Num   
+  ETH15       Num   
+  ETH16       Num   
+  AGE901      Num   
+  AGE902      Num   
+  AGE903      Num   
+  AGE904      Num   
+  AGE905      Num   
+  AGE906      Num   
+  AGE907      Num   
+  CHIL1       Num   
+  CHIL2       Num   
+  CHIL3       Num   
+  AGEC1       Num   
+  AGEC2       Num   
+  AGEC3       Num   
+  AGEC4       Num   
+  AGEC5       Num   
+  AGEC6       Num   
+  AGEC7       Num   
+  CHILC1      Num   
+  CHILC2      Num   
+  CHILC3      Num   
+  CHILC4      Num   
+  CHILC5      Num   
+  HHAGE1      Num   
+  HHAGE2      Num   
+  HHAGE3      Num   
+  HHN1        Num   
+  HHN2        Num   
+  HHN3        Num   
+  HHN4        Num   
+  HHN5        Num   
+  HHN6        Num   
+  MARR1       Num   
+  MARR2       Num   
+  MARR3       Num   
+  MARR4       Num   
+  HHP1        Num   
+  HHP2        Num   
+  DW1         Num   
+  DW2         Num   
+  DW3         Num   
+  DW4         Num   
+  DW5         Num   
+  DW6         Num   
+  DW7         Num   
+  DW8         Num   
+  DW9         Num   
+  HV1         Num   
+  HV2         Num   
+  HV3         Num   
+  HV4         Num   
+  HU1         Num   
+  HU2         Num   
+  HU3         Num   
+  HU4         Num   
+  HU5         Num   
+  HHD1        Num   
+  HHD2        Num   
+  HHD3        Num   
+  HHD4        Num   
+  HHD5        Num   
+  HHD6        Num   
+  HHD7        Num   
+  HHD8        Num   
+  HHD9        Num   
+  HHD10       Num   
+  HHD11       Num   
+  HHD12       Num   
+  ETHC1       Num   
+  ETHC2       Num   
+  ETHC3       Num   
+  ETHC4       Num   
+  ETHC5       Num   
+  ETHC6       Num   
+  HVP1        Num   
+  HVP2        Num   
+  HVP3        Num   
+  HVP4        Num   
+  HVP5        Num   
+  HVP6        Num   
+  HUR1        Num   
+  HUR2        Num   
+  RHP1        Num   
+  RHP2        Num   
+  RHP3        Num   
+  RHP4        Num   
+  HUPA1       Num   
+  HUPA2       Num   
+  HUPA3       Num   
+  HUPA4       Num   
+  HUPA5       Num   
+  HUPA6       Num   
+  HUPA7       Num   
+  RP1         Num   
+  RP2         Num   
+  RP3         Num   
+  RP4         Num   
+  MSA         Num   
+  ADI         Num   
+  DMA         Num   
+  IC1         Num   
+  IC2         Num   
+  IC3         Num   
+  IC4         Num   
+  IC5         Num   
+  IC6         Num   
+  IC7         Num   
+  IC8         Num   
+  IC9         Num   
+  IC10        Num   
+  IC11        Num   
+  IC12        Num   
+  IC13        Num   
+  IC14        Num   
+  IC15        Num   
+  IC16        Num   
+  IC17        Num   
+  IC18        Num   
+  IC19        Num   
+  IC20        Num   
+  IC21        Num   
+  IC22        Num   
+  IC23        Num   
+  HHAS1       Num   
+  HHAS2       Num   
+  HHAS3       Num   
+  HHAS4       Num   
+  MC1         Num   
+  MC2         Num   
+  MC3         Num   
+  TPE1        Num   
+  TPE2        Num   
+  TPE3        Num   
+  TPE4        Num   
+  TPE5        Num   
+  TPE6        Num   
+  TPE7        Num   
+  TPE8        Num   
+  TPE9        Num   
+  PEC1        Num   
+  PEC2        Num   
+  TPE10       Num   
+  TPE11       Num   
+  TPE12       Num   
+  TPE13       Num   
+  LFC1        Num   
+  LFC2        Num   
+  LFC3        Num   
+  LFC4        Num   
+  LFC5        Num   
+  LFC6        Num   
+  LFC7        Num   
+  LFC8        Num   
+  LFC9        Num   
+  LFC10       Num   
+  OCC1        Num   
+  OCC2        Num   
+  OCC3        Num   
+  OCC4        Num   
+  OCC5        Num   
+  OCC6        Num   
+  OCC7        Num   
+  OCC8        Num   
+  OCC9        Num   
+  OCC10       Num   
+  OCC11       Num   
+  OCC12       Num   
+  OCC13       Num   
+  EIC1        Num   
+  EIC2        Num   
+  EIC3        Num   
+  EIC4        Num   
+  EIC5        Num   
+  EIC6        Num   
+  EIC7        Num   
+  EIC8        Num   
+  EIC9        Num   
+  EIC10       Num   
+  EIC11       Num   
+  EIC12       Num   
+  EIC13       Num   
+  EIC14       Num   
+  EIC15       Num   
+  EIC16       Num   
+  OEDC1       Num   
+  OEDC2       Num   
+  OEDC3       Num   
+  OEDC4       Num   
+  OEDC5       Num   
+  OEDC6       Num   
+  OEDC7       Num   
+  EC1         Num   
+  EC2         Num   
+  EC3         Num   
+  EC4         Num   
+  EC5         Num   
+  EC6         Num   
+  EC7         Num   
+  EC8         Num   
+  SEC1        Num   
+  SEC2        Num   
+  SEC3        Num   
+  SEC4        Num   
+  SEC5        Num   
+  AFC1        Num   
+  AFC2        Num   
+  AFC3        Num   
+  AFC4        Num   
+  AFC5        Num   
+  AFC6        Num   
+  VC1         Num   
+  VC2         Num   
+  VC3         Num   
+  VC4         Num   
+  ANC1        Num   
+  ANC2        Num   
+  ANC3        Num   
+  ANC4        Num   
+  ANC5        Num   
+  ANC6        Num   
+  ANC7        Num   
+  ANC8        Num   
+  ANC9        Num   
+  ANC10       Num   
+  ANC11       Num   
+  ANC12       Num   
+  ANC13       Num   
+  ANC14       Num   
+  ANC15       Num   
+  POBC1       Num   
+  POBC2       Num   
+  LSC1        Num   
+  LSC2        Num   
+  LSC3        Num   
+  LSC4        Num   
+  VOC1        Num   
+  VOC2        Num   
+  VOC3        Num   
+  HC1         Num   
+  HC2         Num   
+  HC3         Num   
+  HC4         Num   
+  HC5         Num   
+  HC6         Num   
+  HC7         Num   
+  HC8         Num   
+  HC9         Num   
+  HC10        Num   
+  HC11        Num   
+  HC12        Num   
+  HC13        Num   
+  HC14        Num   
+  HC15        Num   
+  HC16        Num   
+  HC17        Num   
+  HC18        Num   
+  HC19        Num   
+  HC20        Num   
+  HC21        Num   
+  MHUC1       Num   
+  MHUC2       Num   
+  AC1         Num   
+  AC2         Num   
+  ADATE_2     Num   
+  ADATE_3     Num   
+  ADATE_4     Num   
+  ADATE_5     Num   
+  ADATE_6     Num   
+  ADATE_7     Num   
+  ADATE_8     Num   
+  ADATE_9     Num   
+  ADATE_10    Num   
+  ADATE_11    Num   
+  ADATE_12    Num   
+  ADATE_13    Num   
+  ADATE_14    Num   
+  ADATE_15    Num   
+  ADATE_16    Num   
+  ADATE_17    Num   
+  ADATE_18    Num   
+  ADATE_19    Num   
+  ADATE_20    Num   
+  ADATE_21    Num   
+  ADATE_22    Num   
+  ADATE_23    Num   
+  ADATE_24    Num   
+  RFA_2       Char  
+  RFA_3       Char  
+  RFA_4       Char  
+  RFA_5       Char  
+  RFA_6       Char  
+  RFA_7       Char  
+  RFA_8       Char  
+  RFA_9       Char  
+  RFA_10      Char  
+  RFA_11      Char  
+  RFA_12      Char  
+  RFA_13      Char  
+  RFA_14      Char  
+  RFA_15      Char  
+  RFA_16      Char  
+  RFA_17      Char  
+  RFA_18      Char  
+  RFA_19      Char  
+  RFA_20      Char  
+  RFA_21      Char  
+  RFA_22      Char  
+  RFA_23      Char  
+  RFA_24      Char  
+  CARDPROM    Num   
+  MAXADATE    Num   
+  NUMPROM     Num   
+  CARDPM12    Num   
+  NUMPRM12    Num   
+  RDATE_3     Num   
+  RDATE_4     Num   
+  RDATE_5     Num   
+  RDATE_6     Num   
+  RDATE_7     Num   
+  RDATE_8     Num   
+  RDATE_9     Num   
+  RDATE_10    Num   
+  RDATE_11    Num   
+  RDATE_12    Num   
+  RDATE_13    Num   
+  RDATE_14    Num   
+  RDATE_15    Num   
+  RDATE_16    Num   
+  RDATE_17    Num   
+  RDATE_18    Num   
+  RDATE_19    Num   
+  RDATE_20    Num   
+  RDATE_21    Num   
+  RDATE_22    Num   
+  RDATE_23    Num   
+  RDATE_24    Num   
+  RAMNT_3     Num   
+  RAMNT_4     Num   
+  RAMNT_5     Num   
+  RAMNT_6     Num   
+  RAMNT_7     Num   
+  RAMNT_8     Num   
+  RAMNT_9     Num   
+  RAMNT_10    Num   
+  RAMNT_11    Num   
+  RAMNT_12    Num   
+  RAMNT_13    Num   
+  RAMNT_14    Num   
+  RAMNT_15    Num   
+  RAMNT_16    Num   
+  RAMNT_17    Num   
+  RAMNT_18    Num   
+  RAMNT_19    Num   
+  RAMNT_20    Num   
+  RAMNT_21    Num   
+  RAMNT_22    Num   
+  RAMNT_23    Num   
+  RAMNT_24    Num   
+  RAMNTALL    Num   
+  NGIFTALL    Num   
+  CARDGIFT    Num   
+  MINRAMNT    Num   
+  MINRDATE    Num   
+  MAXRAMNT    Num   
+  MAXRDATE    Num   
+  LASTGIFT    Num   
+  LASTDATE    Num   
+  FISTDATE    Num   
+  NEXTDATE    Num   
+  TIMELAG     Num   
+  AVGGIFT     Num   
+  CONTROLN    Num   
+  TARGET_B    Num   /* not included in the validation file */
+  TARGET_D    Num   /* not included in the validation file */ 
+  HPHONE_D    Num   
+  RFA_2R      Char  
+  RFA_2F      Char  
+  RFA_2A      Char  
+  MDMAUD_R    Char  
+  MDMAUD_F    Char  
+  MDMAUD_A    Char  
+  CLUSTER2    Num   
+  GEOCODE2    Char.  
+
+
++--------------------------------------------------------------------+
+| SUMMARY STATISTICS (MIN & MAX)                                     | 
++--------------------------------------------------------------------+
+
+Summary statistics are provided for the numeric variables only. 
+
+  Variable         Learning Data Set         Validation Data Set 
+  --------     ------------------------- --------------------------- 
+                   Minimum       Maximum       Minimum       Maximum 
+  --------     ------------------------- --------------------------- 
+  ODATEDW          8306.00       9701.00       8301.00       9701.00 
+  TCODE                  0      72002.00             0      39002.00 
+  DOB                    0       9710.00             0       9705.00 
+  AGE            1.0000000    98.0000000     1.0000000    98.0000000 
+  NUMCHLD        1.0000000     7.0000000     1.0000000     7.0000000 
+  INCOME         1.0000000     7.0000000     1.0000000     7.0000000 
+  WEALTH1                0     9.0000000             0     9.0000000 
+  HIT                    0   241.0000000             0   242.0000000 
+  MBCRAFT                0     6.0000000             0     6.0000000 
+  MBGARDEN               0     4.0000000             0     3.0000000 
+  MBBOOKS                0     9.0000000             0     9.0000000 
+  MBCOLECT               0     6.0000000             0     6.0000000 
+  MAGFAML                0     9.0000000             0     9.0000000 
+  MAGFEM                 0     5.0000000             0     4.0000000 
+  MAGMALE                0     4.0000000             0     4.0000000 
+  PUBGARDN               0     5.0000000             0     6.0000000 
+  PUBCULIN               0     6.0000000             0     4.0000000 
+  PUBHLTH                0     9.0000000             0     9.0000000 
+  PUBDOITY               0     8.0000000             0     9.0000000 
+  PUBNEWFN               0     9.0000000             0     9.0000000 
+  PUBPHOTO               0     2.0000000             0     2.0000000 
+  PUBOPP                 0     9.0000000             0     9.0000000 
+  MALEMILI               0    99.0000000             0    99.0000000 
+  MALEVET                0    99.0000000             0    99.0000000 
+  VIETVETS               0    99.0000000             0    99.0000000 
+  WWIIVETS               0    99.0000000             0    99.0000000 
+  LOCALGOV               0    99.0000000             0    76.0000000 
+  STATEGOV               0    99.0000000             0    99.0000000 
+  FEDGOV                 0    87.0000000             0    99.0000000 
+  WEALTH2                0     9.0000000             0     9.0000000 
+  POP901                 0      98701.00             0     100286.00 
+  POP902                 0      23766.00             0      21036.00 
+  POP903                 0      35403.00             0      35403.00 
+  POP90C1                0    99.0000000             0    99.0000000 
+  POP90C2                0    99.0000000             0    99.0000000 
+  POP90C3                0    99.0000000             0    99.0000000 
+  POP90C4                0    99.0000000             0    99.0000000 
+  POP90C5                0    99.0000000             0    99.0000000 
+  ETH1                   0    99.0000000             0    99.0000000 
+  ETH2                   0    99.0000000             0    99.0000000 
+  ETH3                   0    99.0000000             0    99.0000000 
+  ETH4                   0    99.0000000             0    94.0000000 
+  ETH5                   0    99.0000000             0    99.0000000 
+  ETH6                   0    22.0000000             0    29.0000000 
+  ETH7                   0    72.0000000             0    67.0000000 
+  ETH8                   0    99.0000000             0    87.0000000 
+  ETH9                   0    67.0000000             0    67.0000000 
+  ETH10                  0    46.0000000             0    45.0000000 
+  ETH11                  0    47.0000000             0    49.0000000 
+  ETH12                  0    72.0000000             0    79.0000000 
+  ETH13                  0    97.0000000             0    96.0000000 
+  ETH14                  0    57.0000000             0    52.0000000 
+  ETH15                  0    81.0000000             0    81.0000000 
+  ETH16                  0    86.0000000             0    81.0000000 
+  AGE901                 0    84.0000000             0    84.0000000 
+  AGE902                 0    84.0000000             0    84.0000000 
+  AGE903                 0    84.0000000             0    84.0000000 
+  AGE904                 0    84.0000000             0    81.0000000 
+  AGE905                 0    84.0000000             0    81.0000000 
+  AGE906                 0    84.0000000             0    81.0000000 
+  AGE907                 0    75.0000000             0    71.0000000 
+  CHIL1                  0    99.0000000             0    99.0000000 
+  CHIL2                  0    99.0000000             0    99.0000000 
+  CHIL3                  0    99.0000000             0    99.0000000 
+  AGEC1                  0    99.0000000             0    97.0000000 
+  AGEC2                  0    99.0000000             0    99.0000000 
+  AGEC3                  0    99.0000000             0    99.0000000 
+  AGEC4                  0    99.0000000             0    50.0000000 
+  AGEC5                  0    99.0000000             0    99.0000000 
+  AGEC6                  0    99.0000000             0    99.0000000 
+  AGEC7                  0    99.0000000             0    90.0000000 
+  CHILC1                 0    99.0000000             0    99.0000000 
+  CHILC2                 0    99.0000000             0    99.0000000 
+  CHILC3                 0    99.0000000             0    99.0000000 
+  CHILC4                 0    99.0000000             0    99.0000000 
+  CHILC5                 0    99.0000000             0    99.0000000 
+  HHAGE1                 0    99.0000000             0    99.0000000 
+  HHAGE2                 0    99.0000000             0    99.0000000 
+  HHAGE3                 0    99.0000000             0    99.0000000 
+  HHN1                   0    99.0000000             0    99.0000000 
+  HHN2                   0    99.0000000             0    99.0000000 
+  HHN3                   0    99.0000000             0    99.0000000 
+  HHN4                   0    99.0000000             0    99.0000000 
+  HHN5                   0    99.0000000             0    99.0000000 
+  HHN6                   0    99.0000000             0    99.0000000 
+  MARR1                  0    99.0000000             0    99.0000000 
+  MARR2                  0    99.0000000             0    99.0000000 
+  MARR3                  0    73.0000000             0    99.0000000 
+  MARR4                  0    99.0000000             0    99.0000000 
+  HHP1                   0   650.0000000             0   650.0000000 
+  HHP2                   0   700.0000000             0   700.0000000 
+  DW1                    0    99.0000000             0    99.0000000 
+  DW2                    0    99.0000000             0    99.0000000 
+  DW3                    0    99.0000000             0    88.0000000 
+  DW4                    0    99.0000000             0    99.0000000 
+  DW5                    0    99.0000000             0    99.0000000 
+  DW6                    0    99.0000000             0    99.0000000 
+  DW7                    0    99.0000000             0    99.0000000 
+  DW8                    0    99.0000000             0    99.0000000 
+  DW9                    0    99.0000000             0    99.0000000 
+  HV1                    0       6000.00             0       6000.00 
+  HV2                    0       6000.00             0       6000.00 
+  HV3                    0    13.0000000             0    13.0000000 
+  HV4                    0    13.0000000             0    13.0000000 
+  HU1                    0    99.0000000             0    99.0000000 
+  HU2                    0    99.0000000             0    99.0000000 
+  HU3                    0    99.0000000             0    99.0000000 
+  HU4                    0    99.0000000             0    99.0000000 
+  HU5                    0    99.0000000             0    99.0000000 
+  HHD1                   0    99.0000000             0    99.0000000 
+  HHD2                   0    99.0000000             0    99.0000000 
+  HHD3                   0    99.0000000             0    99.0000000 
+  HHD4                   0    99.0000000             0    99.0000000 
+  HHD5                   0    99.0000000             0    99.0000000 
+  HHD6                   0    99.0000000             0    99.0000000 
+  HHD7                   0    99.0000000             0    99.0000000 
+  HHD8                   0    50.0000000             0    31.0000000 
+  HHD9                   0    99.0000000             0    99.0000000 
+  HHD10                  0    99.0000000             0    99.0000000 
+  HHD11                  0    99.0000000             0    99.0000000 
+  HHD12                  0    99.0000000             0    99.0000000 
+  ETHC1                  0    75.0000000             0    71.0000000 
+  ETHC2                  0    99.0000000             0    99.0000000 
+  ETHC3                  0    99.0000000             0    99.0000000 
+  ETHC4                  0    55.0000000             0    46.0000000 
+  ETHC5                  0    99.0000000             0    83.0000000 
+  ETHC6                  0    99.0000000             0    80.0000000 
+  HVP1                   0    99.0000000             0    99.0000000 
+  HVP2                   0    99.0000000             0    99.0000000 
+  HVP3                   0    99.0000000             0    99.0000000 
+  HVP4                   0    99.0000000             0    99.0000000 
+  HVP5                   0    99.0000000             0    99.0000000 
+  HVP6                   0    99.0000000             0    99.0000000 
+  HUR1                   0    99.0000000             0    99.0000000 
+  HUR2                   0    99.0000000             0    99.0000000 
+  RHP1                   0    85.0000000             0    85.0000000 
+  RHP2                   0    90.0000000             0    90.0000000 
+  RHP3                   0    61.0000000             0    61.0000000 
+  RHP4                   0    40.0000000             0    40.0000000 
+  HUPA1                  0    99.0000000             0    99.0000000 
+  HUPA2                  0    99.0000000             0    99.0000000 
+  HUPA3                  0    99.0000000             0    99.0000000 
+  HUPA4                  0    99.0000000             0    99.0000000 
+  HUPA5                  0    99.0000000             0    99.0000000 
+  HUPA6                  0    99.0000000             0    99.0000000 
+  HUPA7                  0    99.0000000             0    99.0000000 
+  RP1                    0    99.0000000             0    99.0000000 
+  RP2                    0    99.0000000             0    99.0000000 
+  RP3                    0    99.0000000             0    99.0000000 
+  RP4                    0    99.0000000             0    99.0000000 
+  MSA                    0       9360.00             0       9360.00 
+  ADI                    0   651.0000000             0   645.0000000 
+  DMA                    0   881.0000000             0   881.0000000 
+  IC1                    0       1500.00             0       1500.00 
+  IC2                    0       1500.00             0       1500.00 
+  IC3                    0       1500.00             0       1394.00 
+  IC4                    0       1500.00             0       1500.00 
+  IC5                    0     174523.00             0     174523.00 
+  IC6                    0    99.0000000             0    99.0000000 
+  IC7                    0    99.0000000             0    99.0000000 
+  IC8                    0    99.0000000             0    99.0000000 
+  IC9                    0    99.0000000             0    99.0000000 
+  IC10                   0    99.0000000             0    99.0000000 
+  IC11                   0    99.0000000             0    99.0000000 
+  IC12                   0    50.0000000             0    57.0000000 
+  IC13                   0    61.0000000             0    61.0000000 
+  IC14                   0    99.0000000             0    78.0000000 
+  IC15                   0    99.0000000             0    99.0000000 
+  IC16                   0    99.0000000             0    99.0000000 
+  IC17                   0    99.0000000             0    99.0000000 
+  IC18                   0    99.0000000             0    99.0000000 
+  IC19                   0    99.0000000             0    99.0000000 
+  IC20                   0    99.0000000             0    99.0000000 
+  IC21                   0    50.0000000             0    99.0000000 
+  IC22                   0    99.0000000             0    99.0000000 
+  IC23                   0    99.0000000             0    99.0000000 
+  HHAS1                  0    99.0000000             0    99.0000000 
+  HHAS2                  0    99.0000000             0    99.0000000 
+  HHAS3                  0    99.0000000             0    99.0000000 
+  HHAS4                  0    99.0000000             0    99.0000000 
+  MC1                    0    99.0000000             0    99.0000000 
+  MC2                    0    99.0000000             0    99.0000000 
+  MC3                    0    99.0000000             0    99.0000000 
+  TPE1                   0    99.0000000             0    99.0000000 
+  TPE2                   0    99.0000000             0    99.0000000 
+  TPE3                   0    99.0000000             0    99.0000000 
+  TPE4                   0    99.0000000             0    99.0000000 
+  TPE5                   0    71.0000000             0    68.0000000 
+  TPE6                   0    47.0000000             0    47.0000000 
+  TPE7                   0    25.0000000             0    44.0000000 
+  TPE8                   0    99.0000000             0    99.0000000 
+  TPE9                   0    99.0000000             0    99.0000000 
+  PEC1                   0    99.0000000             0    97.0000000 
+  PEC2                   0    99.0000000             0    99.0000000 
+  TPE10                  0    90.0000000             0    90.0000000 
+  TPE11                  0    76.0000000             0    76.0000000 
+  TPE12                  0    99.0000000             0    85.0000000 
+  TPE13                  0    99.0000000             0    99.0000000 
+  LFC1                   0    99.0000000             0    99.0000000 
+  LFC2                   0    99.0000000             0    99.0000000 
+  LFC3                   0    99.0000000             0    99.0000000 
+  LFC4                   0    99.0000000             0    99.0000000 
+  LFC5                   0    99.0000000             0    99.0000000 
+  LFC6                   0    99.0000000             0    99.0000000 
+  LFC7                   0    99.0000000             0    99.0000000 
+  LFC8                   0    99.0000000             0    99.0000000 
+  LFC9                   0    99.0000000             0    99.0000000 
+  LFC10                  0    99.0000000             0    99.0000000 
+  OCC1                   0    99.0000000             0    99.0000000 
+  OCC2                   0    99.0000000             0    99.0000000 
+  OCC3                   0    99.0000000             0    99.0000000 
+  OCC4                   0    99.0000000             0    99.0000000 
+  OCC5                   0    99.0000000             0    99.0000000 
+  OCC6                   0    43.0000000             0    44.0000000 
+  OCC7                   0    55.0000000             0    55.0000000 
+  OCC8                   0    99.0000000             0    99.0000000 
+  OCC9                   0    99.0000000             0    99.0000000 
+  OCC10                  0    99.0000000             0    99.0000000 
+  OCC11                  0    99.0000000             0    99.0000000 
+  OCC12                  0    99.0000000             0    99.0000000 
+  OCC13                  0    99.0000000             0    88.0000000 
+  EIC1                   0    99.0000000             0    99.0000000 
+  EIC2                   0    65.0000000             0    65.0000000 
+  EIC3                   0    99.0000000             0    99.0000000 
+  EIC4                   0    99.0000000             0    99.0000000 
+  EIC5                   0    99.0000000             0    99.0000000 
+  EIC6                   0    64.0000000             0    99.0000000 
+  EIC7                   0    99.0000000             0    57.0000000 
+  EIC8                   0    99.0000000             0    99.0000000 
+  EIC9                   0    99.0000000             0    99.0000000 
+  EIC10                  0    99.0000000             0    99.0000000 
+  EIC11                  0    99.0000000             0    99.0000000 
+  EIC12                  0    67.0000000             0    61.0000000 
+  EIC13                  0    99.0000000             0    99.0000000 
+  EIC14                  0    99.0000000             0    72.0000000 
+  EIC15                  0    99.0000000             0    99.0000000 
+  EIC16                  0    99.0000000             0    71.0000000 
+  OEDC1                  0    99.0000000             0    99.0000000 
+  OEDC2                  0    99.0000000             0    74.0000000 
+  OEDC3                  0    99.0000000             0    99.0000000 
+  OEDC4                  0    99.0000000             0    99.0000000 
+  OEDC5                  0    99.0000000             0    99.0000000 
+  OEDC6                  0    99.0000000             0    99.0000000 
+  OEDC7                  0    99.0000000             0    99.0000000 
+  EC1                    0   170.0000000             0   170.0000000 
+  EC2                    0    99.0000000             0    99.0000000 
+  EC3                    0    99.0000000             0    99.0000000 
+  EC4                    0    99.0000000             0    99.0000000 
+  EC5                    0    99.0000000             0    99.0000000 
+  EC6                    0    37.0000000             0    68.0000000 
+  EC7                    0    99.0000000             0    99.0000000 
+  EC8                    0    99.0000000             0    74.0000000 
+  SEC1                   0    97.0000000             0    91.0000000 
+  SEC2                   0    99.0000000             0    99.0000000 
+  SEC3                   0    30.0000000             0    20.0000000 
+  SEC4                   0    72.0000000             0    72.0000000 
+  SEC5                   0    99.0000000             0    99.0000000 
+  AFC1                   0    97.0000000             0    95.0000000 
+  AFC2                   0    99.0000000             0    98.0000000 
+  AFC3                   0    78.0000000             0    78.0000000 
+  AFC4                   0    99.0000000             0    99.0000000 
+  AFC5                   0    99.0000000             0    99.0000000 
+  AFC6                   0    30.0000000             0    50.0000000 
+  VC1                    0    99.0000000             0    99.0000000 
+  VC2                    0    99.0000000             0    99.0000000 
+  VC3                    0    99.0000000             0    99.0000000 
+  VC4                    0    99.0000000             0    99.0000000 
+  ANC1                   0    83.0000000             0    74.0000000 
+  ANC2                   0    99.0000000             0    73.0000000 
+  ANC3                   0    31.0000000             0    41.0000000 
+  ANC4                   0    92.0000000             0    99.0000000 
+  ANC5                   0    47.0000000             0    48.0000000 
+  ANC6                   0    14.0000000             0    23.0000000 
+  ANC7                   0    99.0000000             0    57.0000000 
+  ANC8                   0    55.0000000             0    99.0000000 
+  ANC9                   0    68.0000000             0    57.0000000 
+  ANC10                  0    99.0000000             0    74.0000000 
+  ANC11                  0    43.0000000             0    74.0000000 
+  ANC12                  0    52.0000000             0    38.0000000 
+  ANC13                  0    50.0000000             0    50.0000000 
+  ANC14                  0    27.0000000             0    33.0000000 
+  ANC15                  0    32.0000000             0    47.0000000 
+  POBC1                  0    99.0000000             0    99.0000000 
+  POBC2                  0    99.0000000             0    99.0000000 
+  LSC1                   0    99.0000000             0    99.0000000 
+  LSC2                   0    99.0000000             0    99.0000000 
+  LSC3                   0    99.0000000             0    99.0000000 
+  LSC4                   0    99.0000000             0    99.0000000 
+  VOC1                   0    99.0000000             0    99.0000000 
+  VOC2                   0    99.0000000             0    99.0000000 
+  VOC3                   0    99.0000000             0    99.0000000 
+  HC1                    0    31.0000000             0    31.0000000 
+  HC2                    0    52.0000000             0    52.0000000 
+  HC3                    0    99.0000000             0    99.0000000 
+  HC4                    0    99.0000000             0    99.0000000 
+  HC5                    0    99.0000000             0    99.0000000 
+  HC6                    0    99.0000000             0    99.0000000 
+  HC7                    0    99.0000000             0    99.0000000 
+  HC8                    0    99.0000000             0    99.0000000 
+  HC9                    0    90.0000000             0    91.0000000 
+  HC10                   0    62.0000000             0    62.0000000 
+  HC11                   0    99.0000000             0    99.0000000 
+  HC12                   0    99.0000000             0    99.0000000 
+  HC13                   0    99.0000000             0    99.0000000 
+  HC14                   0    99.0000000             0    99.0000000 
+  HC15                   0    30.0000000             0    34.0000000 
+  HC16                   0    99.0000000             0    99.0000000 
+  HC17                   0    99.0000000             0    99.0000000 
+  HC18                   0    99.0000000             0    99.0000000 
+  HC19                   0    99.0000000             0    99.0000000 
+  HC20                   0    99.0000000             0    99.0000000 
+  HC21                   0    99.0000000             0    99.0000000 
+  MHUC1                  0    21.0000000             0    21.0000000 
+  MHUC2                  0     5.0000000             0     5.0000000 
+  AC1                    0    99.0000000             0    52.0000000 
+  AC2                    0    99.0000000             0    99.0000000 
+  ADATE_2          9704.00       9706.00       9704.00       9706.00 
+  ADATE_3          9604.00       9606.00       9604.00       9606.00 
+  ADATE_4          9511.00       9609.00       9511.00       9609.00 
+  ADATE_5          9604.00       9604.00       9604.00       9604.00 
+  ADATE_6          9601.00       9603.00       9601.00       9603.00 
+  ADATE_7          9512.00       9602.00       9512.00       9602.00 
+  ADATE_8          9511.00       9605.00       9511.00       9603.00 
+  ADATE_9          9509.00       9511.00       9509.00       9511.00 
+  ADATE_10         9510.00       9511.00       9510.00       9511.00 
+  ADATE_11         9508.00       9511.00       9508.00       9511.00 
+  ADATE_12         9507.00       9510.00       9507.00       9510.00 
+  ADATE_13         9502.00       9507.00       9502.00       9507.00 
+  ADATE_14         9504.00       9506.00       9504.00       9506.00 
+  ADATE_15         9504.00       9504.00       9504.00       9504.00 
+  ADATE_16         9502.00       9504.00       9502.00       9504.00 
+  ADATE_17         9501.00       9503.00       9501.00       9503.00 
+  ADATE_18         9409.00       9508.00       9409.00       9508.00 
+  ADATE_19         9409.00       9411.00       9409.00       9411.00 
+  ADATE_20         9411.00       9412.00       9411.00       9412.00 
+  ADATE_21         9409.00       9410.00       9409.00       9410.00 
+  ADATE_22         9408.00       9506.00       9408.00       9506.00 
+  ADATE_23         9312.00       9407.00       9312.00       9407.00 
+  ADATE_24         9405.00       9406.00       9405.00       9406.00 
+  CARDPROM       1.0000000    61.0000000             0    62.0000000 
+  MAXADATE         9608.00       9702.00       9607.00       9702.00 
+  NUMPROM        4.0000000   195.0000000     4.0000000   189.0000000 
+  CARDPM12               0    19.0000000             0    21.0000000 
+  NUMPRM12       1.0000000    78.0000000     1.0000000    76.0000000 
+  RDATE_3          9605.00       9806.00       9309.00       9806.00 
+  RDATE_4          9510.00       9804.00       9509.00       9805.00 
+  RDATE_5          9604.00       9803.00       9604.00       9805.00 
+  RDATE_6          9510.00       9805.00       9511.00       9806.00 
+  RDATE_7          9512.00       9610.00       9511.00       9701.00 
+  RDATE_8          9511.00       9806.00       9512.00       9806.00 
+  RDATE_9          9509.00       9609.00       9509.00       9603.00 
+  RDATE_10         9510.00       9806.00       9511.00       9804.00 
+  RDATE_11         9509.00       9805.00       9509.00       9606.00 
+  RDATE_12         9509.00       9806.00       9509.00       9804.00 
+  RDATE_13         9502.00       9603.00       9502.00       9803.00 
+  RDATE_14         9406.00       9603.00       9505.00       9603.00 
+  RDATE_15         9412.00       9603.00       9412.00       9603.00 
+  RDATE_16         9411.00       9805.00       9410.00       9603.00 
+  RDATE_17         9502.00       9512.00       9502.00       9512.00 
+  RDATE_18         9412.00       9601.00       9407.00       9602.00 
+  RDATE_19         9409.00       9509.00       9409.00       9509.00 
+  RDATE_20         9411.00       9508.00       9411.00       9508.00 
+  RDATE_21         9409.00       9508.00       9409.00       9508.00 
+  RDATE_22         9409.00       9510.00       9409.00       9508.00 
+  RDATE_23         9309.00       9507.00       9309.00       9507.00 
+  RDATE_24         9309.00       9504.00       9309.00       9504.00 
+  RAMNT_3        2.0000000    50.0000000     2.0000000   200.0000000 
+  RAMNT_4        1.0000000   100.0000000     1.0000000   100.0000000 
+  RAMNT_5        4.0000000    50.0000000     5.0000000    30.0000000 
+  RAMNT_6        1.0000000   100.0000000     1.0000000   100.0000000 
+  RAMNT_7        1.0000000   250.0000000     1.0000000   203.0000000 
+  RAMNT_8        1.0000000   500.0000000     0.3200000       3713.31 
+  RAMNT_9        1.0000000       1000.00     1.0000000   300.0000000 
+  RAMNT_10       0.3000000   500.0000000     1.0000000      10000.00 
+  RAMNT_11       1.0000000   300.0000000     1.0000000       1000.00 
+  RAMNT_12       1.0000000   300.0000000     1.0000000   500.0000000 
+  RAMNT_13       0.1000000   500.0000000     1.0000000   300.0000000 
+  RAMNT_14       1.0000000   200.0000000     1.0000000   600.0000000 
+  RAMNT_15       1.0000000   300.0000000     1.0000000   500.0000000 
+  RAMNT_16       0.5000000   500.0000000     0.5000000   205.0000000 
+  RAMNT_17       1.0000000   500.0000000     1.0000000   500.0000000 
+  RAMNT_18       1.0000000       1000.00     0.3200000   300.0000000 
+  RAMNT_19       1.0000000   970.0000000     1.0000000   250.0000000 
+  RAMNT_20       0.5000000   250.0000000     1.0000000   200.0000000 
+  RAMNT_21       1.0000000   300.0000000     1.0000000       1000.00 
+  RAMNT_22       0.2900000   300.0000000     1.0000000   500.0000000 
+  RAMNT_23       0.3000000   200.0000000     1.0000000   300.0000000 
+  RAMNT_24       1.0000000   225.0000000     0.5000000   250.0000000 
+  RAMNTALL      13.0000000       9485.00    13.0000000      10253.00 
+  NGIFTALL       1.0000000   237.0000000     1.0000000   126.0000000 
+  CARDGIFT               0    41.0000000             0    45.0000000 
+  MINRAMNT               0       1000.00             0   436.0000000 
+  MINRDATE         7506.00       9702.00       8010.00       9702.00 
+  MAXRAMNT       5.0000000       5000.00     5.0000000      10000.00 
+  MAXRDATE         7510.00       9702.00       8011.00       9702.00 
+  LASTGIFT               0       1000.00             0      10000.00 
+  LASTDATE         9503.00       9702.00       9503.00       9702.00 
+  FISTDATE               0       9603.00             0       9603.00 
+  NEXTDATE         7211.00       9702.00       7312.00       9702.00 
+  TIMELAG                0       1088.00             0       1060.00 
+  AVGGIFT        1.2857143       1000.00     1.5789474   650.0000000 
+  CONTROLN       1.0000000     191779.00     3.0000000     191776.00 
+  TARGET_B               0     1.0000000             0     1.0000000 
+  TARGET_D               0   200.0000000             0   500.0000000 
+  HPHONE_D               0     1.0000000             0     1.0000000 
+  CLUSTER2       1.0000000    62.0000000     1.0000000    62.0000000
+  --------------------------------------   -------------------------
+
+        
++--------------------------------------------------------------------+
+| DATA (PRE)PROCESSING                                               |
++--------------------------------------------------------------------+
+
+General 
+-------
+
+o The field CONTROLN is a unique record identifier (an index) and
+should not be used in modeling
+
+o Response flag (field name: TARGET_B) indicates whether or not the
+lapsed donor responded to the campaign. THIS FIELD SHOULD NOT BE USED
+DURING MODEL BUILDING.
+
+o Blanks in string or character variables correspond to missing
+values.  Periods and/or blanks in the numeric variables correspond to
+missing values.
+
+Data preprocessing tasks include the following:
+
+Noisy Data
+----------
+
+Some of the fields in the analysis file may contain data entry and/or
+formatting errors. You are expected to clean these fields (without
+excluding the records.)
+
+Records and Fields with Missing and Sparse Data
+-----------------------------------------------
+
+Discovery methods vary in the way they treat the missing values. While
+some simply disregard missing values or omit the corresponding
+records, others infer missing values from known values, or treat
+missing data as a special value to be included additionally in the
+attribute domain.
+
+For the purposes of KDD-CUP-98 the records and/or fields should not be
+omitted from analysis because they contain missing data. Instead, the
+missing data should be inferred from known values (e.g., mean, median,
+mode, a modeled value, or any other way supported by your tool.) One
+exception to this rule is the attributes containing 99.5 percent or
+more missings. You are expected to omit these attributes from the
+analysis.
+
+You are also expected to drop attributes with 'sparse'
+distributions. Sparse data occur when the events actually represented
+in given data make only a very small subset of the event space.
+
+Fields Containing Constants
+---------------------------
+
+Fields containing a constant value (i.e., there is only one value for
+all the records) should be dropped from the analysis. Attributes
+containing missing and one valid level (e.g., 'Y') are not considered
+as constants and should be included in the analysis.
+
+Time Frame and Date Fields
+--------------------------
+
+This mailing was mailed to a total of 3.5 million PVA donors who were
+on the PVA database as of June 1997. All information contained in the
+analysis dataset reflects the donor status prior to 6/97 (except the
+gift receipt dates, which will follow the promotion dates.) This date
+could be used as the "end date" or "rerefence date" in the calculation
+of "number of months since" variables.
+
+ATTRIBUTE TYPE
+--------------
+
+See the data dictionary to determine the attribute types. 
+
+
++--------------------------------------------------------------------+
+| KDD-CUP-98 Program Committee                                       |
++--------------------------------------------------------------------+
+
+o Vasant Dhar, New York University, New York, NY
+o Tom Fawcett, Bell Atlantic, New York, NY
+o Georges Grinstein, University of Massachusetts, Lowell, MA
+o Ismail Parsa, Epsilon, Burlington, MA
+o Gregory Piatetsky-Shapiro, Knowledge Stream Partners, Boston, MA
+o Foster Provost, Bell Atlantic, New York, NY
+o Kyusoek Shim, Bell Laboratories, Murray Hill, NJ
+
+
++--------------------------------------------------------------------+
+| TERMINOLOGY-GLOSSARY                                               |
++--------------------------------------------------------------------+
+
+[GLOSSARY]
+
+For more information on the terminology used throughout this
+documentation, refer to the questionnaire documentation (file name:
+cup98QUE.txt.)
+
+o attribute = field = variable = feature
+o responders = targets
+o non-reponders = non-targets 
+o output = target = dependent variable
+o inputs = independent variables
+o analysis file = analysis sample = combined learning and validation 
+  files 
+
+======================================================================
+EPSILON CONFIDENTIAL      EPSILON CONFIDENTIAL    EPSILON CONFIDENTIAL
+
+    INFORMATION LISTED BELOW IS AVAILABLE UNDER THE TERMS OF THE  
+                      CONFIDENTIALITY AGREEMENT                
+
+EPSILON CONFIDENTIAL      EPSILON CONFIDENTIAL    EPSILON CONFIDENTIAL
+======================================================================
+
